@@ -12,6 +12,11 @@
   align-items: center;
 }
 
+.nextPage {
+  cursor: pointer;
+  padding: 5px;
+}
+
 .footer {
   display: flex;
   flex: 1;
@@ -50,11 +55,6 @@
   text-align: center;
 }
 
-.description {
-  margin: 4rem 0;
-  line-height: 1.5;
-  font-size: 1.5rem;
-}
 
 .code {
   background: #fafafa;
@@ -121,7 +121,7 @@
     border-color: #222;
   }
   .code {
-    background: #111;
+    background: rgb(256,256,256);
   }
   .logo img {
     filter: invert(1);

@@ -1,7 +1,7 @@
 .card {
     background-color: #363837;
     padding: 20px;
-    border-radius: 10%;
+    border-radius: 1rem;
     position: relative;
 }
 
@@ -20,6 +20,7 @@
     padding: 5px;
     background-color: gray;
     transition: 0.4s;
+    border-radius: 0.2rem;
     &:hover {
         background-color: white;
         color: black;

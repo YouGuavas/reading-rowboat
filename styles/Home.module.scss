@@ -1,3 +1,5 @@
+@import './_variables';
+
 .container {
   padding: 0 2rem;
 }
@@ -48,6 +50,13 @@
   margin: 0;
   line-height: 1.15;
   font-size: 4rem;
+  letter-spacing: 0.3rem;
+  text-transform: uppercase;
+  color: $color-1;
+  text-shadow: -1px 1px 0 $color-2,
+                1px 1px 0 $color-2,
+                1px -1px 0 $color-2,
+                -1px -1px 0 $color-2;  
 }
 
 .title,

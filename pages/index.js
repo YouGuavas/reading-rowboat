@@ -8,7 +8,7 @@ import Head from 'next/head'
 import Image from 'next/image'
 import Restart from '../components/Restart';
 import Card from '../components/Card'
-import styles from '../styles/Home.module.css'
+import styles from '../styles/Home.module.scss'
 import {useState} from 'react'
 import { SERVER_PROPS_ID } from 'next/dist/shared/lib/constants'
 
@@ -68,7 +68,7 @@ export default function Home() {
 
       <main className={styles.main}>
         <h1 className={styles.title}>
-          Welcome to Sonic's Adventure
+          <em>Sonic's Adventure</em>
         </h1>
         <Card prompt={pages[currentPage].prompt || "What does Sonic do next?"} choices={pages[currentPage].choices} description={pages[currentPage].text} img={pages[currentPage].image} handleChoice={handleChoice}/>
        {(!pages[currentPage].choices) ? <div className={styles.nextPage} onClick={()=>handlePages('Down')}>{"<"}</div> : null}

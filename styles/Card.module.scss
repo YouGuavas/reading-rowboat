@@ -1,5 +1,8 @@
+@import './variables';
+
 .card {
-    background-color: #363837;
+    background-color: $color-1;
+    border: 1px solid $color-2;
     padding: 20px;
     border-radius: 1rem;
     position: relative;
@@ -18,7 +21,7 @@
     display: flex;
     cursor: pointer;
     padding: 5px;
-    background-color: gray;
+    background-color: $color-1;
     transition: 0.4s;
     border-radius: 0.2rem;
     &:hover {

@@ -1,30 +1,66 @@
-import sonicBed from '../public/SonicBed.jpg'
-import alarmClock from '../public/AlarmClock.jpg'
+import sonicBed from '../public/SonicBed.jpg';
+import sonicMad from '../public/SonicMad.jpg';
+import sonicSmiles from '../public/SonicSmiles.jpg';
+import alarmClock from '../public/AlarmClock.jpg';
+
+
 import Head from 'next/head'
 import Image from 'next/image'
 import Card from '../components/Card'
 import styles from '../styles/Home.module.css'
 import {useState} from 'react'
+import { SERVER_PROPS_ID } from 'next/dist/shared/lib/constants'
 
 export default function Home() {
-  const [currentImage, setCurrentImage] = useState(1);
+  const [currentPage, setCurrentPage] = useState(1);
   const images = {
     1: sonicBed,
-    2: alarmClock
+    2: alarmClock, 
   };
-  const text = {
-    1: {text:"Sonic sleeps", choices: false},
-    2: {text: "Sonic gets up", choices: [
-      "Sonic gets mad", "Sonic smiles"
-    ]}
+  const pages = {
+    1: {image: sonicBed, text:"Sonic sleeps.", choices: false},
+
+    2: {image: alarmClock, text: "Sonic gets up.", choices: [
+      {text: "Sonic gets mad", number: "1a"}, {text: "Sonic smiles", number: "1b"}
+    ]},
+
+
+
+    "1a": {image: sonicMad, text: "Sonic is mad.", choices: [
+      {text: "Sonic calms down.", number: "1b"}, {text: "Sonic stays mad.", number: "2a-b"}
+    ]},
+
+    "1b": {image: sonicSmiles, text: "Sonic starts his day.", choices: [
+      {text: "Sonic eats food.", number: "2b-a"}, {text: "Sonic runs to school.", number: "3b"}
+    ]},
+    "2b-a": {image: alarmClock, text: "Sonic eats food.", prompt: "What does Sonic eat?", choices: [
+      {text: "Sonic eats fruit.", number: "2b-a-a"}, {text: "Sonic eats oats.", number: "3b"}
+    ]},
+    "2b-a-a": {image: alarmClock, text: "Sonic eats fruit.", prompt: "What fruit does Sonic eat?", choices: [
+      {text: "Sonic eats grapes.", number: "3b"}, {text: "Sonic eats", number: "3b"}
+    ]},
+
+    "3b": {image: sonicBed, text: "Sonic runs to school.", prompt: "What does Sonic see?", choices: [
+      {text: "Amy looks sad.", number: "3b-a"}, {text: "Tails says hi.", number: "3b-b"}
+    ]},
+
+
+
+    "final": {image: sonicBed, text: "Sonic goes to sleep.", choices: false}
+
   }
   const handlePages = (direction) => {
     if (direction === 'Up') {
-      currentImage < Object.keys(images).length ? setCurrentImage(currentImage+1) : null;
+      currentPage < Object.keys(pages).length ? setCurrentPage(currentPage+1) : null;
     } else {
-      currentImage > 1 ? setCurrentImage(currentImage-1) : null;
+      currentPage > 1 ? setCurrentPage(currentPage-1) : null;
     }
   }
+
+  const handleChoice = (choiceNumber) => {
+    setCurrentPage(choiceNumber);
+  }
+
   return (
     <div className={styles.container}>
       <Head>
@@ -37,9 +73,9 @@ export default function Home() {
         <h1 className={styles.title}>
           Welcome to Sonic's Adventure
         </h1>
-        <Card choices={text[currentImage].choices} description={text[currentImage].text} img={images[currentImage]}/>
-        <div className={styles.nextPage} onClick={()=>handlePages('Down')}>{"<"}</div>
-        <div className={styles.nextPage} onClick={()=>handlePages('Up')}>{">"}</div>
+        <Card prompt={pages[currentPage].prompt || "What does Sonic do next?"} choices={pages[currentPage].choices} description={pages[currentPage].text} img={pages[currentPage].image} handleChoice={handleChoice}/>
+       {(!pages[currentPage].choices) ? <div className={styles.nextPage} onClick={()=>handlePages('Down')}>{"<"}</div> : null}
+       {(!pages[currentPage].choices) ? <div className={styles.nextPage} onClick={()=>handlePages('Up')}>{">"}</div> : null}
       </main>
     </div>
   )

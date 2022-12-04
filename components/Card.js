@@ -8,8 +8,8 @@ export default function Card(props) {
         if (props.choices) {
             return (
                 <ul className={styles.choicesList}>
-                <h3>What does Sonic do next?</h3>
-                {props.choices.map((choice) => (<li className={styles.choice}>{choice}</li>))}
+                <h3>{props.prompt}</h3>
+                {props.choices.map((choice) => (<li onClick={() => props.handleChoice(choice.number)} className={styles.choice}>{choice.text}</li>))}
                 </ul>
             )
         }

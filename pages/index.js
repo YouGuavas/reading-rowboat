@@ -6,6 +6,7 @@ import alarmClock from '../public/AlarmClock.jpg';
 
 import Head from 'next/head'
 import Image from 'next/image'
+import Restart from '../components/Restart';
 import Card from '../components/Card'
 import styles from '../styles/Home.module.css'
 import {useState} from 'react'
@@ -71,7 +72,7 @@ export default function Home() {
         </h1>
         <Card prompt={pages[currentPage].prompt || "What does Sonic do next?"} choices={pages[currentPage].choices} description={pages[currentPage].text} img={pages[currentPage].image} handleChoice={handleChoice}/>
        {(!pages[currentPage].choices) ? <div className={styles.nextPage} onClick={()=>handlePages('Down')}>{"<"}</div> : null}
-       {(!pages[currentPage].choices) ? <div className={styles.nextPage} onClick={()=>handlePages('Up')}>{">"}</div> : null}
+       {(!pages[currentPage].choices) ? <div className={styles.nextPage} onClick={()=>handlePages('Up')}>{">"}</div> : <Restart/>}
       </main>
     </div>
   )

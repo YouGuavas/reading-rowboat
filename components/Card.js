@@ -1,4 +1,3 @@
-import { SERVER_PROPS_ID } from 'next/dist/shared/lib/constants'
 import Image from 'next/image'
 
 import styles from '../styles/Card.module.scss'

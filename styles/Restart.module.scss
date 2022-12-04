@@ -1,0 +1,28 @@
+@import './variables';
+
+.restart {
+    text-transform: uppercase;
+    font-weight: 900;
+    font-size: 30pt;
+    letter-spacing: 3px;
+    color: $color-1;
+    text-shadow: -0.5px 0.5px 0px $color-2,
+                0.5px 0.5px 0 $color-2,
+                0.5px -0.5px 0 $color-2,
+                -0.5px -0.5px 0 $color-2;   
+
+    background-color: $color-1;
+    border-radius: 0.5rem;
+    padding: 3px;
+    cursor: pointer;
+    transition: 0.4s;
+    &:hover {
+        color: $color-2;
+        text-shadow: -0.5px 0.5px 0px white,
+                0.5px 0.5px 0 white,
+                0.5px -0.5px 0 white,
+                -0.5px -0.5px 0 white;
+        background-color: $color-1;
+
+    }
+}

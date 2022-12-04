@@ -13,10 +13,6 @@ import { SERVER_PROPS_ID } from 'next/dist/shared/lib/constants'
 
 export default function Home() {
   const [currentPage, setCurrentPage] = useState(1);
-  const images = {
-    1: sonicBed,
-    2: alarmClock, 
-  };
   const pages = {
     1: {image: sonicBed, text:"Sonic sleeps.", choices: false},
 

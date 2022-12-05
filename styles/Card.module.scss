@@ -2,30 +2,47 @@
 
 .card {
     background-color: $color-1;
+    width: 40rem;
     border: 1px solid $color-2;
     padding: 20px;
     border-radius: 1rem;
     position: relative;
 }
-
+.imageContainer {
+    position: relative;
+    width: 100%;
+    max-width: 300px;
+    margin: 0 auto;
+}
 .description {
     margin: 4rem 0;
     line-height: 1.5;
     font-size: 1.5rem;
+    width: 100%;
+    text-align: center;
+}
+
+.choicesTitle {
+    text-align: center;
 }
 
 .choicesList {
     list-style: none;
+    display: inline;
+    margin: 0 auto;
+    padding: 0;
+    width: 100%;
 }
 .choice {
-    display: flex;
     cursor: pointer;
-    padding: 5px;
+    padding: 0.5rem;
+    margin: 0.5rem;
     background-color: $color-1;
     transition: 0.4s;
     border-radius: 0.2rem;
+    border: 1px solid $color-2;
     &:hover {
-        background-color: white;
-        color: black;
+        background-color: $color-2;
+        color: $color-1;
     }
 }

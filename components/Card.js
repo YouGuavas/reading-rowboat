@@ -6,17 +6,20 @@ export default function Card(props) {
     const renderChoices = () => {
         if (props.choices) {
             return (
+                <div>
+                <h3 className={styles.choicesTitle}>{props.prompt}</h3>
                 <ul className={styles.choicesList}>
-                <h3>{props.prompt}</h3>
                 {props.choices.map((choice) => (<li onClick={() => props.handleChoice(choice.number)} className={styles.choice}>{choice.text}</li>))}
                 </ul>
+                </div>
             )
         }
     }
     return (
         <div className={styles.card}>
-
-            <Image height='379px' width='300px' src={props.img}/>
+            <div className={styles.imageContainer}>
+                <Image height={379} width={300} src={props.img}/>
+            </div>
             <p className={styles.description}>
                 {props.description}
             </p>

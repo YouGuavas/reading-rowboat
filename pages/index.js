@@ -55,7 +55,26 @@ export default function Home() {
   }
 
   const handleChoice = (choiceNumber) => {
-    setCurrentPage(choiceNumber);
+    if ((Object.keys(pages).indexOf(choiceNumber) !== -1) || (choiceNumber === 1) || (choiceNumber === 2)) {
+      setCurrentPage(choiceNumber);
+    } else {
+      setCurrentPage("final")
+    }
+  }
+
+  const renderButtons = () => {
+    if (!pages[currentPage].choices) {
+      return (
+        <div>
+          <div className={styles.nextPage} onClick={()=>handlePages('Down')}>{"<"}</div>
+          <div className={styles.nextPage} onClick={()=>handlePages('Up')}>{">"}</div>
+        </div>
+      )
+    } else {
+      return (
+        <Restart handleChoice={handleChoice}/>
+      )
+    }
   }
 
   return (
@@ -71,8 +90,7 @@ export default function Home() {
           <em>Sonic's Adventure</em>
         </h1>
         <Card prompt={pages[currentPage].prompt || "What does Sonic do next?"} choices={pages[currentPage].choices} description={pages[currentPage].text} img={pages[currentPage].image} handleChoice={handleChoice}/>
-       {(!pages[currentPage].choices) ? <div className={styles.nextPage} onClick={()=>handlePages('Down')}>{"<"}</div> : null}
-       {(!pages[currentPage].choices) ? <div className={styles.nextPage} onClick={()=>handlePages('Up')}>{">"}</div> : <Restart/>}
+       {renderButtons()}
       </main>
     </div>
   )

@@ -13,6 +13,10 @@ export default function Card(props) {
                 </ul>
                 </div>
             )
+        } else {
+            return (
+                <h3 className={styles.choicesTitle}>{props.prompt}</h3>
+            )
         }
     }
     return (

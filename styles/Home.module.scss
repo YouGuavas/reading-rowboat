@@ -13,6 +13,15 @@
   justify-content: center;
   align-items: center;
 }
+.buttonContainer {
+  width: 100%;
+  @media screen and (min-width: $laptop) {
+    display: flex;
+}
+  div {
+    border: 1px solid white;
+  }
+}
 
 .nextPage {
   cursor: pointer;
@@ -49,7 +58,10 @@
 .title {
   margin: 0 0 1rem 0;
   line-height: 1.15;
-  font-size: 4rem;
+  font-size: 2rem;
+  @media screen and (min-width: $laptop) {
+    font-size: 4rem;
+}
   letter-spacing: 0.3rem;
   text-transform: uppercase;
   color: $color-1;

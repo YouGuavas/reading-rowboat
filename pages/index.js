@@ -15,7 +15,7 @@ import { SERVER_PROPS_ID } from 'next/dist/shared/lib/constants'
 export default function Home() {
   const [currentPage, setCurrentPage] = useState(1);
   const pages = {
-    1: {image: sonicBed, text:"Sonic sleeps.", choices: false},
+    1: {image: sonicBed, text:"Sonic sleeps.", choices: [{text: ">", number: 2}]},
 
     2: {image: alarmClock, text: "Sonic gets up.", choices: [
       {text: "Sonic gets mad", number: "1a"}, {text: "Sonic smiles", number: "1b"}
@@ -43,7 +43,7 @@ export default function Home() {
 
 
 
-    "final": {image: sonicBed, text: "Sonic goes to sleep.", choices: false}
+    "final": {image: sonicBed, text: "Sonic goes to sleep.", prompt: "The end.", choices: false}
 
   }
   const handlePages = (direction) => {
@@ -62,20 +62,7 @@ export default function Home() {
     }
   }
 
-  const renderButtons = () => {
-    if (!pages[currentPage].choices) {
-      return (
-        <div>
-          <div className={styles.nextPage} onClick={()=>handlePages('Down')}>{"<"}</div>
-          <div className={styles.nextPage} onClick={()=>handlePages('Up')}>{">"}</div>
-        </div>
-      )
-    } else {
-      return (
-        <Restart handleChoice={handleChoice}/>
-      )
-    }
-  }
+  
 
   return (
     <div className={styles.container}>
@@ -90,7 +77,7 @@ export default function Home() {
           <em>Sonic's Adventure</em>
         </h1>
         <Card prompt={pages[currentPage].prompt || "What does Sonic do next?"} choices={pages[currentPage].choices} description={pages[currentPage].text} img={pages[currentPage].image} handleChoice={handleChoice}/>
-       {renderButtons()}
+        <Restart handleChoice={handleChoice} />
       </main>
     </div>
   )

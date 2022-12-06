@@ -2,24 +2,36 @@
 
 .card {
     background-color: $color-1;
-    width: 40rem;
+    width: 25rem;
+    margin: 0;
+    @media screen and (min-width: $laptop) {
+        width: 40rem;
+    }
     border: 1px solid $color-2;
     padding: 20px;
     border-radius: 1rem;
     position: relative;
 }
+
 .imageContainer {
     position: relative;
     width: 100%;
     max-width: 300px;
+    @media screen and (min-width: $laptop) {
+        max-width: 300px;
+    }
     margin: 0 auto;
 }
 .description {
-    margin: 4rem 0;
+    margin: 1rem 0;
     line-height: 1.5;
-    font-size: 1.5rem;
+    font-size: 1.2rem;
     width: 100%;
     text-align: center;
+    @media screen and (min-width: $laptop) {
+        margin: 4rem 0;
+        font-size: 1.5rem;
+    }
 }
 
 .choicesTitle {
@@ -29,20 +41,30 @@
 .choicesList {
     list-style: none;
     display: inline;
+    @media screen and (min-width: $laptop) {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
     margin: 0 auto;
     padding: 0;
     width: 100%;
 }
 .choice {
     cursor: pointer;
-    padding: 0.5rem;
+    padding: 2rem 0.5rem;
     margin: 0.5rem;
-    background-color: $color-1;
+    background-color: $color-2;
+    color: $color-1;
     transition: 0.4s;
     border-radius: 0.2rem;
-    border: 1px solid $color-2;
+    //border: 1px solid $color-2;
+    text-align: center;
+    @media screen and (min-width: $laptop) {
+        text-align: left;
+        padding: 0.5rem;
+    }
     &:hover {
-        background-color: $color-2;
-        color: $color-1;
+        background-color: $color-4;
     }
 }

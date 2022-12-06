@@ -9,7 +9,7 @@ export default function Card(props) {
                 <div>
                 <h3 className={styles.choicesTitle}>{props.prompt}</h3>
                 <ul className={styles.choicesList}>
-                {props.choices.map((choice) => (<li onClick={() => props.handleChoice(choice.number)} className={styles.choice}>{choice.text}</li>))}
+                {props.choices.map((choice, index) => (<li key={index} onClick={() => props.handleChoice(choice.number)} className={styles.choice}>{choice.text}</li>))}
                 </ul>
                 </div>
             )

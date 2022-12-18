@@ -1,51 +1,15 @@
-import sonicBed from '../public/SonicBed.jpg';
-import sonicMad from '../public/SonicMad.jpg';
-import sonicSmiles from '../public/SonicSmiles.jpg';
-import alarmClock from '../public/AlarmClock.jpg';
-
-
 import Head from 'next/head'
 import Image from 'next/image'
 import Restart from '../components/Restart';
 import Card from '../components/Card'
 import styles from '../styles/Home.module.scss'
+import {storyPages} from './pages';
 import {useState} from 'react'
 import { SERVER_PROPS_ID } from 'next/dist/shared/lib/constants'
 
 export default function Home() {
   const [currentPage, setCurrentPage] = useState(1);
-  const pages = {
-    1: {image: sonicBed, text:"Sonic sleeps.", choices: [{text: ">", number: 2}]},
-
-    2: {image: alarmClock, text: "Sonic gets up.", choices: [
-      {text: "Sonic gets mad", number: "1a"}, {text: "Sonic smiles", number: "1b"}
-    ]},
-
-
-
-    "1a": {image: sonicMad, text: "Sonic is mad.", choices: [
-      {text: "Sonic calms down.", number: "1b"}, {text: "Sonic stays mad.", number: "2a-b"}
-    ]},
-
-    "1b": {image: sonicSmiles, text: "Sonic starts his day.", choices: [
-      {text: "Sonic eats food.", number: "2b-a"}, {text: "Sonic runs to school.", number: "3b"}
-    ]},
-    "2b-a": {image: alarmClock, text: "Sonic eats food.", prompt: "What does Sonic eat?", choices: [
-      {text: "Sonic eats fruit.", number: "2b-a-a"}, {text: "Sonic eats oats.", number: "3b"}
-    ]},
-    "2b-a-a": {image: alarmClock, text: "Sonic eats fruit.", prompt: "What fruit does Sonic eat?", choices: [
-      {text: "Sonic eats grapes.", number: "3b"}, {text: "Sonic eats", number: "3b"}
-    ]},
-
-    "3b": {image: sonicBed, text: "Sonic runs to school.", prompt: "What does Sonic see?", choices: [
-      {text: "Amy looks sad.", number: "3b-a"}, {text: "Tails says hi.", number: "3b-b"}
-    ]},
-
-
-
-    "final": {image: sonicBed, text: "Sonic goes to sleep.", prompt: "The end.", choices: false}
-
-  }
+  const pages = storyPages;
   const handlePages = (direction) => {
     if (direction === 'Up') {
       currentPage < Object.keys(pages).length ? setCurrentPage(currentPage+1) : null;

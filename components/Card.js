@@ -22,7 +22,7 @@ export default function Card(props) {
     return (
         <div className={styles.card}>
             <div className={styles.imageContainer}>
-                <Image height={379} width={300} src={props.img}/>
+                <Image height={379} width={300} src={props.img} alt={props.alt}/>
             </div>
             <p className={styles.description}>
                 {props.description}

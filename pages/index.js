@@ -40,7 +40,7 @@ export default function Home() {
         <h1 className={styles.title}>
           <em>Sonic{"'"}s Adventure</em>
         </h1>
-        <Card prompt={pages[currentPage].prompt || "What does Sonic do next?"} choices={pages[currentPage].choices} description={pages[currentPage].text} img={pages[currentPage].image} handleChoice={handleChoice}/>
+        <Card prompt={pages[currentPage].prompt || "What does Sonic do next?"} choices={pages[currentPage].choices} description={pages[currentPage].text} alt={pages[currentPage].alt} img={pages[currentPage].image} handleChoice={handleChoice}/>
         <Restart handleChoice={handleChoice} />
       </main>
     </div>

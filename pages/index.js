@@ -28,7 +28,6 @@ export default function Home() {
   const titleText = "Sonic's Adventure";
 
 
-
   const pages = {
     1: {image: sonicBed, alt: "Sonic the Hedgehog asleep.", text:"Sonic sleeps.", choices: [{text: ">", number: 2}]},
     2: {image: alarmClock, alt: "An alarm clock.", text: "Sonic gets up.", choices: [
@@ -94,14 +93,18 @@ export default function Home() {
     "final": {image: sonicBed, alt: "Sonic the Hedgehog asleep.", text: "Sonic goes to sleep.", prompt: "The end.", choices: false}
   }
   
+
   const handleChoice = (choiceNumber) => {
     if ((Object.keys(pages).indexOf(choiceNumber) !== -1) || (choiceNumber === 1) || (choiceNumber === 2)) {
+      //if the choice exists, select it
       setCurrentPage(choiceNumber);
     } else {
+      //if the choice does not exist, go to the end
       setCurrentPage("final")
     }
   }
 
+  
   return (
     <div className={styles.container}>
       <Head>
@@ -112,7 +115,7 @@ export default function Home() {
 
       <main className={styles.main}>
         <h1 className={styles.title}>
-          <em>Sonic{"'"}s Adventure</em>
+          <em>{titleText}</em>
         </h1>
         <Card prompt={pages[currentPage].prompt || "What does Sonic do next?"} choices={pages[currentPage].choices} description={pages[currentPage].text} alt={pages[currentPage].alt} img={pages[currentPage].image} handleChoice={handleChoice}/>
         <Restart handleChoice={handleChoice} />

@@ -31,7 +31,7 @@ export default function Home() {
   const pages = {
     1: {image: sonicBed, alt: "Sonic the Hedgehog asleep.", text:"Sonic sleeps.", choices: [{text: ">", number: 2}]},
     2: {image: alarmClock, alt: "An alarm clock.", text: "Sonic gets up.", choices: [
-      {text: "Sonic gets mad", number: "1a"}, {text: "Sonic smiles", number: "1b"}
+      {text: "Sonic gets mad.", number: "1a"}, {text: "Sonic smiles.", number: "1b"}
     ]},
     //--------------------//
     "1a": {image: sonicMad, alt: "Sonic the Hedgehog angry.", text: "Sonic is mad.", choices: [
@@ -104,7 +104,7 @@ export default function Home() {
     }
   }
 
-  
+
   return (
     <div className={styles.container}>
       <Head>

@@ -1,3 +1,4 @@
+//STORY IMAGES
 import sonicBed from '../public/SonicBed.jpg';
 import sonicMad from '../public/SonicMad.jpg';
 import sonicSmiles from '../public/SonicSmiles.jpg';
@@ -15,9 +16,7 @@ import tailSonicHappy from '../public/TailSonicHappy.png';
 import healthyFruit from '../public/HealthyFruit.jpg';
 import someCandy from '../public/SomeCandy.png';
 import sonicSick from '../public/SonicSick.jpg';
-
-
-
+//--------------------//
 import Head from 'next/head'
 import Restart from '../components/Restart';
 import Card from '../components/Card'
@@ -32,20 +31,17 @@ export default function Home() {
 
   const pages = {
     1: {image: sonicBed, alt: "Sonic the Hedgehog asleep.", text:"Sonic sleeps.", choices: [{text: ">", number: 2}]},
-
     2: {image: alarmClock, alt: "An alarm clock.", text: "Sonic gets up.", choices: [
       {text: "Sonic gets mad", number: "1a"}, {text: "Sonic smiles", number: "1b"}
     ]},
-
-
-
+    //--------------------//
     "1a": {image: sonicMad, alt: "Sonic the Hedgehog angry.", text: "Sonic is mad.", choices: [
       {text: "Sonic calms down.", number: "1b"}, {text: "Sonic stays mad.", number: "2a-b"}
     ]},
-
     "1b": {image: sonicSmiles, alt: "Sonic the Hedgehog smiling.", text: "Sonic starts his day.", choices: [
       {text: "Sonic eats food.", number: "2b-a"}, {text: "Sonic runs to school.", number: "3b"}
     ]},
+    //--------------------//
     "2b-a": {image: sonicFood, alt: "Sonic the Hedgehog with a chili dog.", text: "Sonic eats food.", prompt: "What does Sonic eat?", choices: [
       {text: "Sonic eats fruit.", number: "2b-a-a"}, {text: "Sonic eats candy.", number: "2b-a-b"}
     ]},
@@ -55,15 +51,15 @@ export default function Home() {
     "2b-a-b": {image: someCandy, alt: "Cartoon candies.", text: "Sonic eats candy.", prompt: "Sonic's belly hurts.", choices: [
       {text: ">", number: "3c"}
     ]},
-
+    //--------------------//
+    //TODO: change options to reflect the removal of "3a"
     "3b": {image: sonicToSchool, alt: "Sonic the Hedgehog running with bag in hand.", text: "Sonic runs to school.", prompt: "What does Sonic see?", choices: [
       {text: "Amy looks sad.", number: "3b-a"}, {text: "Tails says hi.", number: "3b-b"}
     ]},
-
     "3c": {image: sonicSick, alt: "Sonic the Hedgehog feeling unwell.", text: "Sonic feels sick.", choices: [
       {text: ">", number: "final"}
     ]},
-
+    //--------------------//
     "3b-a": {image: amySad, alt: "Amy Rose crying.", text: "Amy is sad.", prompt: "What does Sonic do?", choices: [
       {text: "Sonic is kind to Amy.", number: "3b-a-a"}, {text: "Sonic does not know what to do.", number: "3b-a-b"}
     ]},
@@ -73,7 +69,7 @@ export default function Home() {
     "3b-a-b": {image: tailsAmy, alt: "Tails consoling a sad Amy.", text: "Tails says nice things to Amy.", prompt: "See how Amy feels.", choices: [
       {text: ">", number: "4a"}
     ]},
-
+    //--------------------//
     "3b-b": {image: tailsHi, alt: "Tails waving to you.", text: "Tails says hi.", prompt: "What do Tails and Sonic do?", choices: [
       {text: "They read a book.", number: "3b-b-a"}, {text: "They run.", number: "3b-b-b"}
     ]},
@@ -83,34 +79,21 @@ export default function Home() {
     "3b-b-b": {image: tailSonicRun, alt: "Sonic running while carrying Tails, both smiling.", text: "Sonic and Tails go for a run.", prompt: "See how they feel.", choices: [
       {text: ">", number: "5b"}
     ]},
-
+    //--------------------//
     "4a": {image: amySmile, alt: "Amy Rose smiling.", text: "Amy feels well.", prompt: "Sonic is glad Amy feels well.", choices: [
       {text: ">", number: "5a"}
     ]},
+    //--------------------//
     "5a": {image: sonicSmiles, alt: "Sonic the Hedgehog smiling.", text: "Sonic smiles.", prompt: "Sonic has had a good day.", choices: [
       {text: ">", number: "final"}
     ]},
     "5b": {image: tailSonicHappy, alt: "Tails and Sonic smiling together.", text: "They feel well.", prompt: "Sonic has had a good day.", choices: [
       {text: ">", number: "final"}
     ]},
-
-
+    //--------------------//
     "final": {image: sonicBed, alt: "Sonic the Hedgehog asleep.", text: "Sonic goes to sleep.", prompt: "The end.", choices: false}
-
   }
-
-
-
-
-
-  const handlePages = (direction) => {
-    if (direction === 'Up') {
-      currentPage < Object.keys(pages).length ? setCurrentPage(currentPage+1) : null;
-    } else {
-      currentPage > 1 ? setCurrentPage(currentPage-1) : null;
-    }
-  }
-
+  
   const handleChoice = (choiceNumber) => {
     if ((Object.keys(pages).indexOf(choiceNumber) !== -1) || (choiceNumber === 1) || (choiceNumber === 2)) {
       setCurrentPage(choiceNumber);
@@ -118,8 +101,6 @@ export default function Home() {
       setCurrentPage("final")
     }
   }
-
-  
 
   return (
     <div className={styles.container}>

@@ -2,14 +2,14 @@
 
 .card {
     background-color: $color-1;
-    height: 43rem;
+    height: 40rem;
     width: 25rem;
     margin: 0;
     @media screen and (min-width: $laptop) {
         width: 40rem;
     }
     border: 1px solid $color-2;
-    padding: 20px;
+    padding: 1rem;
     border-radius: 1rem;
     position: relative;
 }
@@ -24,13 +24,13 @@
     margin: 0 auto;
 }
 .description {
-    margin: 1rem 0;
+    margin: 1.5rem 0;
     line-height: 1.5;
     font-size: 1.2rem;
     width: 100%;
     text-align: center;
     @media screen and (min-width: $laptop) {
-        margin: 4rem 0;
+        margin: 2rem 0;
         font-size: 1.5rem;
     }
 }
@@ -53,13 +53,12 @@
 }
 .choice {
     cursor: pointer;
-    padding: 2rem 0.5rem;
+    padding: 1rem 0.5rem;
     margin: 0.5rem;
     background-color: $color-2;
     color: $color-1;
     transition: 0.4s;
     border-radius: 0.2rem;
-    //border: 1px solid $color-2;
     text-align: center;
     @media screen and (min-width: $laptop) {
         text-align: left;
